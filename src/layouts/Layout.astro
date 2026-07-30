@@ -1,8 +1,8 @@
 ---
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import { generateCanonicalUrl, getRobotsContent } from '../utils/seo';
-import '../styles/global.css';
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { generateCanonicalUrl, getRobotsContent } from "../utils/seo";
+import "../styles/global.css";
 
 interface Props {
   title: string;
@@ -10,41 +10,64 @@ interface Props {
   keywords?: string;
 }
 
-const { 
-  title = "Nova Concerns | Mobile Phone and SIM Deals", 
-  description = "Explore the latest mobile phone and SIM deals from Nova Concerns. View available offers and call our team for more information.", 
-  keywords = "mobile deals, SIM contracts, Nova Concerns, phone subscriptions"
+const {
+  title = "Nova Concerns | Mobile Phone and SIM Deals",
+  description = "Explore the latest mobile phone and SIM deals from Nova Concerns. View available offers and call our team for more information.",
+  keywords = "mobile deals, SIM contracts, Nova Concerns, phone subscriptions",
 } = Astro.props;
 
 // Load Env variables
-const SITE_URL = import.meta.env.SITE_URL || 'https://novaconcerns.site';
-const SITE_ENV = import.meta.env.SITE_ENV || 'development';
-const SEO_APPROVED = import.meta.env.SEO_APPROVED === 'true';
+const SITE_URL = import.meta.env.SITE_URL || "https://novaconcerns.site";
+const SITE_ENV = import.meta.env.SITE_ENV || "development";
+const SEO_APPROVED = import.meta.env.SEO_APPROVED === "true";
 
 // Compute SEO configurations
-const canonicalUrl = generateCanonicalUrl(SITE_URL, Astro.url.pathname, SITE_ENV, SEO_APPROVED);
+const canonicalUrl = generateCanonicalUrl(
+  SITE_URL,
+  Astro.url.pathname,
+  SITE_ENV,
+  SEO_APPROVED,
+);
 const robotsContent = getRobotsContent(SITE_ENV, SEO_APPROVED);
 const themeColor = "#789872"; // Matching Theme Sage Green
-const ogImage = new URL('/og-image.svg', canonicalUrl).toString();
+const ogImage = new URL("/og-image.svg", canonicalUrl).toString();
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=AW-18355645586"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "AW-18355645586");
+    </script>
+
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <meta name="theme-color" content={themeColor} />
-    
+
     <!-- Centralized SEO Metadata -->
     <title>{title}</title>
     <meta name="description" content={description} />
     <meta name="keywords" content={keywords} />
     <meta name="robots" content={robotsContent} />
     <link rel="canonical" href={canonicalUrl} />
-    <link rel="preload" as="image" href="/images/hero-sim-bg.png" type="image/png" />
-    
+    <link
+      rel="preload"
+      as="image"
+      href="/images/hero-sim-bg.png"
+      type="image/png"
+    />
+
     <!-- Open Graph (Facebook / LinkedIn) -->
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Nova Concerns" />
@@ -55,7 +78,7 @@ const ogImage = new URL('/og-image.svg', canonicalUrl).toString();
     <meta property="og:image" content={ogImage} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    
+
     <!-- Twitter / X -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content={canonicalUrl} />
@@ -64,45 +87,51 @@ const ogImage = new URL('/og-image.svg', canonicalUrl).toString();
     <meta property="twitter:image" content={ogImage} />
 
     <!-- Structured Data (JSON-LD Organization, WebSite, WebPage) -->
-    <script type="application/ld+json" is:inline set:html={JSON.stringify({
-      "@context": "https://schema.org",
-      "@graph": [
-        {
-          "@type": "Organization",
-          "@id": `${canonicalUrl}#organization`,
-          "name": "Nova Concerns",
-          "url": canonicalUrl,
-          "telephone": "+441234567890",
-          "logo": {
-            "@type": "ImageObject",
-            "url": new URL('/favicon.svg', canonicalUrl).toString()
-          }
-        },
-        {
-          "@type": "WebSite",
-          "@id": `${canonicalUrl}#website`,
-          "name": "Nova Concerns",
-          "url": canonicalUrl
-        },
-        {
-          "@type": "WebPage",
-          "@id": `${canonicalUrl}#webpage`,
-          "url": canonicalUrl,
-          "name": title,
-          "description": description,
-          "isPartOf": {
-            "@id": `${canonicalUrl}#website`
+    <script
+      type="application/ld+json"
+      is:inline
+      set:html={JSON.stringify({
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Organization",
+            "@id": `${canonicalUrl}#organization`,
+            name: "Nova Concerns",
+            url: canonicalUrl,
+            telephone: "+441234567890",
+            logo: {
+              "@type": "ImageObject",
+              url: new URL("/favicon.svg", canonicalUrl).toString(),
+            },
           },
-          "about": {
-            "@id": `${canonicalUrl}#organization`
-          }
-        }
-      ]
-    })} />
+          {
+            "@type": "WebSite",
+            "@id": `${canonicalUrl}#website`,
+            name: "Nova Concerns",
+            url: canonicalUrl,
+          },
+          {
+            "@type": "WebPage",
+            "@id": `${canonicalUrl}#webpage`,
+            url: canonicalUrl,
+            name: title,
+            description: description,
+            isPartOf: {
+              "@id": `${canonicalUrl}#website`,
+            },
+            about: {
+              "@id": `${canonicalUrl}#organization`,
+            },
+          },
+        ],
+      })}
+    />
   </head>
   <body>
     <!-- Accessibility Skip Link -->
-    <a href="#main-content" class="skip-to-content sr-only">Skip to main content</a>
+    <a href="#main-content" class="skip-to-content sr-only"
+      >Skip to main content</a
+    >
 
     <!-- Header Navigation -->
     <Header />
@@ -138,7 +167,7 @@ const ogImage = new URL('/og-image.svg', canonicalUrl).toString();
     clip: auto;
     white-space: normal;
   }
-  
+
   .main-layout-wrapper {
     min-height: calc(100vh - 120px - 400px);
     display: flex;
