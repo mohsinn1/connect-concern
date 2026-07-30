@@ -1,0 +1,476 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { CONTACT_INFO } from '../data/contact';
+---
+
+<Layout 
+  title="Nova Concerns | Mobile Phone and SIM Deals"
+  description="Explore the latest mobile phone and SIM deals from Nova Concerns. View available offers and call our team for more information."
+>
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="hero-overlay"></div>
+    <div class="container hero-container">
+      <div class="hero-card">
+        <div class="hero-deco-line"></div>
+        <h1 class="hero-title">Upgrade On Flat 18% Off</h1>
+        <p class="hero-subtitle">Enjoy Everything Unlimited For Sure</p>
+        <a 
+          href={CONTACT_INFO.phoneDial} 
+          class="btn-hero-cta" 
+          aria-label="Call Nova Concerns now to order mobile or SIM plans"
+        >
+          Shop Now
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Free Delivery Banner (Start of Products Section) -->
+  <div class="info-banner-full">
+    <div class="info-banner-text">FREE DELIVERY</div>
+  </div>
+
+  <!-- Latest Deals Section -->
+  <section class="deals-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">LATEST DEALS GOING ON</h2>
+        <p class="section-subtitle">Get The Best Deals With Unlimited Tariff And Less Monthly Bill</p>
+      </div>
+
+      <div class="deals-grid">
+        <!-- SIM Only Deal Card (Product 1) -->
+        <article class="deal-card">
+          <div class="card-image-wrap">
+            <img 
+              src="/images/sim.png" 
+              alt="5G Unlimited SIM Only contract card" 
+              class="card-img" 
+              width="240"
+              height="240"
+              loading="lazy"
+            />
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">5G SIM ONLY OFFERS</h3>
+            <p class="card-text">Best 5G Sim Only With Unlimited Tariff Plan In Just 9 Pounds a Month</p>
+            <div class="card-action-wrap">
+              <a 
+                href={CONTACT_INFO.phoneDial} 
+                class="btn-deal-cta"
+                aria-label="Call Nova Concerns about 5G SIM Only offers"
+              >
+                Get Now
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Phone Deal Card 1 (Product 2) -->
+        <article class="deal-card">
+          <div class="card-image-wrap">
+            <img 
+              src="/images/iphone17.png" 
+              alt="Brand new Apple iPhone 17 in green finish" 
+              class="card-img phone-img" 
+              width="240"
+              height="240"
+              loading="lazy"
+            />
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">APPLE IPHONE 17</h3>
+            <p class="card-text">Latest iPhone 17 In Just 27 Pounds a Month</p>
+            <div class="card-action-wrap">
+              <a 
+                href={CONTACT_INFO.phoneDial} 
+                class="btn-deal-cta"
+                aria-label="Call Nova Concerns about Apple iPhone 17 contract"
+              >
+                Upgrade Now
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Phone Deal Card 2 (Product 3) -->
+        <article class="deal-card">
+          <div class="card-image-wrap">
+            <img 
+              src="/images/google pixel.png" 
+              alt="Brand new Google Pixel 10 Pro in porcelain finish" 
+              class="card-img phone-img" 
+              width="240"
+              height="240"
+              loading="lazy"
+            />
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">GOOGLE PIXEL 10 PRO</h3>
+            <p class="card-text">Latest Google Pixel In Just 35 Pounds a Month</p>
+            <div class="card-action-wrap">
+              <a 
+                href={CONTACT_INFO.phoneDial} 
+                class="btn-deal-cta"
+                aria-label="Call Nova Concerns about Google Pixel 10 Pro contract"
+              >
+                Upgrade Now
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Phone Deal Card 3 (Product 4) -->
+        <article class="deal-card">
+          <div class="card-image-wrap">
+            <img 
+              src="/images/samsung.png" 
+              alt="Brand new Samsung Galaxy S26" 
+              class="card-img phone-img" 
+              width="240"
+              height="240"
+              loading="lazy"
+            />
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">SAMSUNG GALAXY S26</h3>
+            <p class="card-text">Latest Samsung Galaxy In Just 29 Pounds a Month</p>
+            <div class="card-action-wrap">
+              <a 
+                href={CONTACT_INFO.phoneDial} 
+                class="btn-deal-cta"
+                aria-label="Call Nova Concerns about Samsung Galaxy S26 contract"
+              >
+                Upgrade Now
+              </a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Same Day Delivery Banner (End of Products) -->
+  <div class="info-banner-full">
+    <div class="info-banner-text">SAME DAY DELIVERY</div>
+  </div>
+
+  <!-- Broadband Services Section -->
+  <section class="deals-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">HIGH SPEED BROADBAND SERVICES</h2>
+        <p class="section-subtitle">Get the fastest internet for your home with unlimited usage and standard smart routers included.</p>
+      </div>
+
+      <div class="broadband-single-wrap">
+        <article class="deal-card" style="max-width: 280px; margin: 0 auto;">
+          <div class="card-image-wrap">
+            <img 
+              src="/images/broadband-router.png" 
+              alt="Lightning Fibre Broadband Router" 
+              class="card-img"
+              loading="lazy"
+              width="240"
+              height="240"
+            />
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">LIGHTNING FIBRE</h3>
+            <p class="card-text">Enjoy ultra-fast, unlimited gigabit speeds with low latency. Perfect for streaming, gaming, and multiple screens.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+/* Hero Section */
+.hero-section {
+  position: relative;
+  min-height: 75vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background-color: #070709;
+  background-image: url('/images/hero-sim-bg.png');
+  background-size: cover;
+  background-position: center;
+  padding: 4rem 1rem;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 1;
+}
+
+.hero-container {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.hero-card {
+  background: rgba(26, 26, 26, 0.45);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  padding: 3.5rem 2.5rem;
+  max-width: 680px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero-deco-line {
+  width: 60px;
+  height: 3px;
+  background-color: #ffffff;
+  margin-bottom: 2rem;
+}
+
+.hero-title {
+  font-family: var(--font-display);
+  font-size: 2.75rem;
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1.2;
+  margin-bottom: 1.25rem;
+  letter-spacing: -0.01em;
+}
+
+.hero-subtitle {
+  font-size: 1.25rem;
+  color: #ffffff;
+  opacity: 0.95;
+  margin-bottom: 2.5rem;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.btn-hero-cta {
+  background-color: #ffffff;
+  color: #000000;
+  padding: 0.9rem 2.5rem;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  display: inline-block;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.btn-hero-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 255, 255, 0.2);
+  background-color: #f7f7f7;
+}
+
+/* Deals Section */
+.deals-section {
+  background-color: #789872; /* Matching Sage Green background */
+  padding: 5rem 0;
+  color: #ffffff;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 0.75rem;
+  letter-spacing: 0.02em;
+}
+
+.section-subtitle {
+  font-size: 1.1rem;
+  opacity: 0.95;
+  max-width: 600px;
+  margin: 0 auto;
+  font-weight: 500;
+}
+
+/* Deals Grid and Cards */
+.deals-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+@media (max-width: 1100px) {
+  .deals-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .deals-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 0 1rem;
+  }
+}
+
+.deal-card {
+  display: flex;
+  flex-direction: column;
+  border-radius: 16px;
+  overflow: hidden;
+  background-color: #ffffff;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100%;
+}
+
+.deal-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
+}
+
+.card-image-wrap {
+  background-color: #ffffff;
+  height: 240px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.card-img {
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+  transition: transform 0.5s ease;
+}
+
+.phone-img {
+  max-height: 110%;
+}
+
+.deal-card:hover .card-img {
+  transform: scale(1.05);
+}
+
+.card-body {
+  padding: 2rem 1.5rem;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1; /* Makes card bodies expand to equal height */
+}
+
+.card-title {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: #1a1a1a;
+  margin-bottom: 0.75rem;
+  text-align: center;
+}
+
+.card-text {
+  font-size: 0.95rem;
+  color: #555555;
+  line-height: 1.5;
+  margin-bottom: 1.75rem;
+  text-align: center;
+  flex-grow: 1; /* Pushes the button to the bottom */
+  font-weight: 500;
+}
+
+.card-action-wrap {
+  display: flex;
+  justify-content: center;
+  margin-top: auto; /* Ensures perfect vertical alignment of buttons */
+}
+
+.btn-deal-cta {
+  background-color: #789872; /* Sage green button matching layout */
+  color: #ffffff;
+  padding: 0.8rem 2rem;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  display: inline-block;
+  text-align: center;
+  border: 1px solid #789872;
+  cursor: pointer;
+  width: 100%;
+}
+
+.btn-deal-cta:hover {
+  background-color: #65815f;
+  border-color: #65815f;
+  transform: translateY(-1px);
+}
+
+@media (max-width: 640px) {
+  .hero-title {
+    font-size: 2rem;
+  }
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+  .section-title {
+    font-size: 1.8rem;
+  }
+  .card-image-wrap {
+    height: 200px;
+  }
+  .card-body {
+    padding: 1.5rem;
+  }
+}
+
+/* Info Banner Styles */
+.info-banner-full {
+  width: 100%;
+  background-color: #ffffff;
+  padding: 1.75rem 0;
+  text-align: center;
+  border-top: 1px solid #e5e7eb;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.info-banner-text {
+  font-family: var(--font-sans), sans-serif;
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: #1a1a1a;
+  letter-spacing: 0.1em;
+}
+
+</style>
+
+<style is:global>
+/* Broadband Styles */
+.broadband-single-wrap {
+  display: flex !important;
+  justify-content: center !important;
+</style>

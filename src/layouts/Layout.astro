@@ -1,0 +1,147 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { generateCanonicalUrl, getRobotsContent } from '../utils/seo';
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description: string;
+  keywords?: string;
+}
+
+const { 
+  title = "Nova Concerns | Mobile Phone and SIM Deals", 
+  description = "Explore the latest mobile phone and SIM deals from Nova Concerns. View available offers and call our team for more information.", 
+  keywords = "mobile deals, SIM contracts, Nova Concerns, phone subscriptions"
+} = Astro.props;
+
+// Load Env variables
+const SITE_URL = import.meta.env.SITE_URL || 'https://novaconcerns.site';
+const SITE_ENV = import.meta.env.SITE_ENV || 'development';
+const SEO_APPROVED = import.meta.env.SEO_APPROVED === 'true';
+
+// Compute SEO configurations
+const canonicalUrl = generateCanonicalUrl(SITE_URL, Astro.url.pathname, SITE_ENV, SEO_APPROVED);
+const robotsContent = getRobotsContent(SITE_ENV, SEO_APPROVED);
+const themeColor = "#789872"; // Matching Theme Sage Green
+const ogImage = new URL('/og-image.svg', canonicalUrl).toString();
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="theme-color" content={themeColor} />
+    
+    <!-- Centralized SEO Metadata -->
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="keywords" content={keywords} />
+    <meta name="robots" content={robotsContent} />
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="preload" as="image" href="/images/hero-sim-bg.png" type="image/png" />
+    
+    <!-- Open Graph (Facebook / LinkedIn) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Nova Concerns" />
+    <meta property="og:locale" content="en_GB" />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    
+    <!-- Twitter / X -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={canonicalUrl} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={ogImage} />
+
+    <!-- Structured Data (JSON-LD Organization, WebSite, WebPage) -->
+    <script type="application/ld+json" is:inline set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": `${canonicalUrl}#organization`,
+          "name": "Nova Concerns",
+          "url": canonicalUrl,
+          "telephone": "+441234567890",
+          "logo": {
+            "@type": "ImageObject",
+            "url": new URL('/favicon.svg', canonicalUrl).toString()
+          }
+        },
+        {
+          "@type": "WebSite",
+          "@id": `${canonicalUrl}#website`,
+          "name": "Nova Concerns",
+          "url": canonicalUrl
+        },
+        {
+          "@type": "WebPage",
+          "@id": `${canonicalUrl}#webpage`,
+          "url": canonicalUrl,
+          "name": title,
+          "description": description,
+          "isPartOf": {
+            "@id": `${canonicalUrl}#website`
+          },
+          "about": {
+            "@id": `${canonicalUrl}#organization`
+          }
+        }
+      ]
+    })} />
+  </head>
+  <body>
+    <!-- Accessibility Skip Link -->
+    <a href="#main-content" class="skip-to-content sr-only">Skip to main content</a>
+
+    <!-- Header Navigation -->
+    <Header />
+
+    <!-- Main Content wrapper with unique id -->
+    <main id="main-content" class="main-layout-wrapper">
+      <slot />
+    </main>
+
+    <!-- Footer Area -->
+    <Footer />
+  </body>
+</html>
+
+<style is:global>
+  /* Accessibility skip link styling */
+  .skip-to-content {
+    background: #789872;
+    color: #fff;
+    padding: 0.75rem 1.5rem;
+    position: absolute;
+    top: -80px;
+    left: 20px;
+    z-index: 2000;
+    border-radius: 4px;
+    transition: top 0.2s;
+    font-family: var(--font-sans);
+  }
+  .skip-to-content:focus {
+    top: 20px;
+    width: auto;
+    height: auto;
+    clip: auto;
+    white-space: normal;
+  }
+  
+  .main-layout-wrapper {
+    min-height: calc(100vh - 120px - 400px);
+    display: flex;
+    flex-direction: column;
+  }
+</style>

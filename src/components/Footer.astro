@@ -1,0 +1,216 @@
+---
+import { CONTACT_INFO } from "../data/contact";
+---
+
+<footer class="site-footer">
+  <div class="container footer-container">
+    <div class="footer-grid">
+      <!-- Contact Column -->
+      <div class="footer-col contact-col">
+        <h4 class="footer-title">CONTACT</h4>
+        <ul class="contact-list">
+          <li>
+            {CONTACT_INFO.email}
+          </li>
+          <li class="contact-phone-item">
+            {CONTACT_INFO.phoneDisplay}
+          </li>
+          <li class="contact-phone-item">443300599814</li>
+          <li class="contact-btn-item">
+            <span class="footer-call-btn"> Call Now </span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Newsletter Column (incorporates legal content from screenshot) -->
+      <div class="footer-col newsletter-col">
+        <p class="legal-text">
+          <strong>Registered address:</strong> 156 Longwater Avenue, Green Park, Reading,
+          Berkshire, RG2 6GF
+        </p>
+        <p class="legal-text">
+          Registered in England &amp; Wales | <strong
+            >Registered company number:</strong
+          > 032854354
+        </p>
+        <p class="legal-text">
+          <strong>Vat number:</strong> GB421752362
+        </p>
+
+        <p class="legal-cookie-text">
+          By using this site, you agree we can set and use cookies. For more
+          details of these cookies and how to disable them, see our <a
+            href="https://www.idmobile.co.uk/legal/privacy-and-cookies"
+            target="_blank"
+            rel="noopener noreferrer"
+            style="text-decoration: underline; color: inherit;">cookie policy</a
+          >.
+        </p>
+
+        <div class="footer-legal-links">
+          <a href="/terms-and-conditions" class="footer-legal-link"
+            >Terms & Conditions</a
+          >
+        </div>
+
+        <p class="copyright-text">Copyright &copy; 2026 NOVA CONCERNS</p>
+      </div>
+    </div>
+
+    <!-- Centered bottom text -->
+    <div class="footer-bottom">
+      <p>&copy; 2026. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    background-color: #ffffff;
+    color: #4b5563; /* Medium/dark gray for excellent contrast on white bg */
+    padding: 4rem 0 3rem 0;
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    border-top: 1px solid #e5e7eb; /* Soft border matching light theme */
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 4rem;
+  }
+
+  @media (max-width: 900px) {
+    .footer-grid {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .footer-grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+  }
+
+  .footer-col {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .footer-title {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: #1a1a1a; /* Dark text for title to stand out on white background */
+    letter-spacing: 0.05em;
+  }
+
+  /* Legal Column styling */
+  .legal-col {
+    gap: 0.6rem;
+  }
+
+  .legal-text {
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  .legal-text strong {
+    color: #1a1a1a; /* Highlight important labels */
+  }
+
+  .legal-text.highlight {
+    font-size: 1rem;
+    margin-bottom: 0.2rem;
+    color: #1a1a1a;
+  }
+
+  .legal-cookie-text {
+    font-size: 0.8rem;
+    line-height: 1.5;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+    color: #6b7280; /* Muted gray for small legal info */
+  }
+
+  .copyright-text {
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-top: 0.5rem;
+    color: #1a1a1a;
+  }
+
+  .footer-legal-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    margin-top: 0.5rem;
+  }
+
+  .footer-legal-link {
+    color: #4b5563; /* Match copyright/cookie text */
+    text-decoration: underline;
+    margin-left: 0.25rem;
+    transition: color 0.2s ease;
+    display: inline-block;
+  }
+
+  .footer-legal-link:hover {
+    color: #789872; /* Change to brand sage green on hover */
+  }
+
+  .footer-legal-link:focus-visible {
+    outline: 2px solid #789872;
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+
+  /* Contact Column styling */
+  .contact-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .contact-list li:not(.contact-btn-item) {
+    color: #1a1a1a;
+    font-weight: 500;
+    font-size: 1.05rem;
+    display: block;
+  }
+
+  /* Call Now button style (display content only, non-interactive) */
+  .footer-call-btn {
+    display: inline-block;
+    background-color: #789872; /* Sage green matching the brand */
+    color: #ffffff !important;
+    font-weight: 700;
+    text-decoration: none;
+    padding: 0.6rem 2rem;
+    border-radius: 24px;
+    font-size: 0.95rem;
+    text-align: center;
+    cursor: default;
+    user-select: none;
+  }
+
+  .contact-btn-item {
+    margin-top: 1rem;
+  }
+
+  /* Centered all rights reserved section at bottom */
+  .footer-bottom {
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #e5e7eb;
+    text-align: center;
+    font-size: 0.85rem;
+    color: #6b7280;
+  }
+</style>
