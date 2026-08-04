@@ -18,7 +18,7 @@ if (fs.existsSync('.env')) {
   });
 }
 
-const siteUrl = process.env.SITE_URL || 'https://novaconcerns.site';
+const siteUrl = process.env.SITE_URL || 'https://nexaconcerns.site';
 
 // https://astro.build/config
 export default defineConfig({
