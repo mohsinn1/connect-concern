@@ -1,7 +1,7 @@
 import type { APIRoute } from 'astro';
 
 export const GET: APIRoute = () => {
-  const SITE_URL = import.meta.env.SITE_URL || 'https://myconcern.site';
+  const SITE_URL = import.meta.env.SITE_URL || 'https://yourconcern.site';
   const SITE_ENV = import.meta.env.SITE_ENV || 'development';
   const SEO_APPROVED = import.meta.env.SEO_APPROVED === 'true';
 
