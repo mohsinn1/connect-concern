@@ -1,5 +1,5 @@
 export function generateCanonicalUrl(siteUrl: string, pathname: string, siteEnv: string, seoApproved: boolean): string {
-  let baseUrl = siteUrl || 'https://inovoconcern.site';
+  let baseUrl = siteUrl || 'https://myconcern.site';
   
   // Use HTTPS in approved production
   if (siteEnv === 'production' && seoApproved) {
@@ -10,7 +10,7 @@ export function generateCanonicalUrl(siteUrl: string, pathname: string, siteEnv:
   try {
     url = new URL(baseUrl);
   } catch (e) {
-    url = new URL('https://inovoconcern.site');
+    url = new URL('https://myconcern.site');
   }
 
   // Remove query parameters and hash fragments
@@ -30,8 +30,8 @@ export function generateCanonicalUrl(siteUrl: string, pathname: string, siteEnv:
 
   // Never output localhost in approved production
   if (siteEnv === 'production' && seoApproved) {
-    if (url.hostname.includes('localhost') || url.hostname.includes('inovoconcern.site')) {
-      return 'https://inovoconcern.site' + cleanPath;
+    if (url.hostname.includes('localhost') || url.hostname.includes('myconcern.site')) {
+      return 'https://myconcern.site' + cleanPath;
     }
   }
 
