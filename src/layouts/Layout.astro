@@ -12,12 +12,12 @@ interface Props {
 
 const {
   title = "Lumina Apparel – Modern City Style | Lumina Apparel",
-  description = "Explore the latest mobile phone and SIM deals from Your Concern. View available offers and call our team for more information.",
-  keywords = "mobile deals, SIM contracts, Your Concern, phone subscriptions",
+  description = "Explore the latest mobile phone and SIM deals from Connect Concern. View available offers and call our team for more information.",
+  keywords = "mobile deals, SIM contracts, Connect Concern, phone subscriptions",
 } = Astro.props;
 
 // Load Env variables
-const SITE_URL = import.meta.env.SITE_URL || "https://yourconcern.site";
+const SITE_URL = import.meta.env.SITE_URL || "https://connectconcern.site";
 const SITE_ENV = import.meta.env.SITE_ENV || "development";
 const SEO_APPROVED = import.meta.env.SEO_APPROVED === "true";
 
@@ -37,13 +37,13 @@ const ogImage = new URL("/og-image.svg", canonicalUrl).toString();
 <html lang="en">
   <head>
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18394769111"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18398717580"></script>
     <script is:inline>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
 
-      gtag('config', 'AW-18394769111');
+      gtag('config', 'AW-18398717580');
     </script>
 
     <meta charset="utf-8" />
@@ -67,7 +67,7 @@ const ogImage = new URL("/og-image.svg", canonicalUrl).toString();
 
     <!-- Open Graph (Facebook / LinkedIn) -->
     <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="Your Concern" />
+    <meta property="og:site_name" content="Connect Concern" />
     <meta property="og:locale" content="en_GB" />
     <meta property="og:url" content={canonicalUrl} />
     <meta property="og:title" content={title} />
@@ -93,9 +93,9 @@ const ogImage = new URL("/og-image.svg", canonicalUrl).toString();
           {
             "@type": "Organization",
             "@id": `${canonicalUrl}#organization`,
-            name: "Your Concern",
+            name: "Connect Concern",
             url: canonicalUrl,
-            telephone: "+443300597119",
+            telephone: "+448006521828",
             logo: {
               "@type": "ImageObject",
               url: new URL("/favicon.svg", canonicalUrl).toString(),
@@ -104,7 +104,7 @@ const ogImage = new URL("/og-image.svg", canonicalUrl).toString();
           {
             "@type": "WebSite",
             "@id": `${canonicalUrl}#website`,
-            name: "Your Concern",
+            name: "Connect Concern",
             url: canonicalUrl,
           },
           {
